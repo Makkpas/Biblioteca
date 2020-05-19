@@ -44,3 +44,10 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+
+
+// Route::get('/libros', function () {
+//     return view('home');
+// });
+
+Route::get('/libros', 'LibrosController@index');
