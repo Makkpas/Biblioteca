@@ -9,10 +9,10 @@ class AutoresController extends Controller
 {
     public function index(){
         
-        $libros = Libro::all();
+        $autores = Autor::all();
 
         return view('autores.index', [
-            'libros' => $libros
+            'autores' => $autores
         ]);
     }
 
@@ -24,7 +24,7 @@ class AutoresController extends Controller
         
         $data = $request->validated();
         
-        $avatar = 'storage/avatars/notfound.jpg';
+        $avatar = 'storage/avatars/notfound.png';
 
         if($request->hasFile('avatar')){
             $file = $data['avatar'];
@@ -45,5 +45,12 @@ class AutoresController extends Controller
         }
 
         dd($data);
+    }
+
+
+    public function show(Autor $autor){
+        return view('autores.show',[
+            'autor' => $autor
+        ]);
     }
 }
