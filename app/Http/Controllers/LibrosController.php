@@ -18,7 +18,7 @@ class LibrosController extends Controller
         // return view('libros.index')->with('libros', $libros);
 
         return view('libros.index',[
-            'libros'=> $libros
+            'libros'=>$libros
         ]);
     }
 
@@ -67,7 +67,7 @@ class LibrosController extends Controller
     */
     public function show(Libro $libro){
         return view('libros.show', [
-            'libro' => $libro
+            'libro'=>$libro
         ]);
     }
 
@@ -75,12 +75,40 @@ class LibrosController extends Controller
     // Ser encarga de modificar el libro en la base de datos
     //  @var \App\Http\Request\CrearLibroRequest $request
     // @return response
-    public function edit(Libro $libro){}
+    public function edit(Libro $libro){
+        return view('libros.edit', [
+            'libros'=>$libro
+        ]);
+    }
 
 
 
     public function update(CrearLibroRequest $request){
 
+        $data = $request->validated();
+
+        if($request->hasFile('portada')){
+            $file = $data['portada'];
+
+            $portada = time() . $file->getClientOriginalName();
+
+            $file->storeAs('public/portadas', $portada);
+
+            $portada = 'storage/portadas/' . $portada;
+        }
+
+        $data['portada'] = $portada;
+
+        $findLibro = Libro::find($data['isbn']);
+
+        $updateLibro = Libro::where('id', $findLibro['id'])
+                        ->update($data);
+
+        if($updateLibro){
+            return redirect(route('libros.index'));
+        }
+        dd($updateLibro);
+     
     }
 
     
