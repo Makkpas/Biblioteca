@@ -50,4 +50,21 @@ Route::get('/home', 'HomeController@index')->name('home');
 //     return view('home');
 // });
 
-Route::get('/libros', 'LibrosController@index');
+Route::get('/libros', 'LibrosController@index')->name('libros.index');
+Route::get('/libros/create', 'LibrosController@create')->name('libros.create');
+Route::post('/libros/store', 'LibrosController@store')->name('libros.store');
+
+Route::get('/libros/{libro}/edit', 'LibrosController@edit')->name('libros.edit');
+Route::put('/libros/update', 'LibrosController@update')->name('libros.update');
+
+
+Route::get('/libros/{libro}', 'LibrosController@show')->name('libros.show');
+Route::delete('/libros/{libro}', 'LibrosController@delete')->name('libros.delete');
+
+/*
+GET      -> Mostrar información
+POST     -> Almacenar información
+PUT      -> Actualizar información
+DELETE   -> Eliminar información
+
+*/

@@ -1,3 +1,10 @@
 {
-    "Acá van a ir todo los libros": "All the books will be here"
+    "Acá van a ir todo los libros": "All the books will be here",
+    "Insertar libro": "Insert book",
+    "Título": "Title",
+    "ISBN": "ISBN",
+    "Resumen": "Resume",
+    "Portada": "Cover page",
+    "Ver más": "See more",
+    "Libros": "Books"
 }
