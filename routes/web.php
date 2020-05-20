@@ -67,6 +67,10 @@ Route::delete('/libros/{libro}', 'LibrosController@delete')->name('libros.delete
 
 // Rutas autores
 Route::get('/autores', 'AutoresController@index')->name('autores.index');
+Route::get('/autores/create', 'AutoresController@create')->name('autores.create');
+
+
+Route::post('/autores/store', 'AutoresController@store')->name('autores.store');
 /*
 GET      -> Mostrar información
 POST     -> Almacenar información
