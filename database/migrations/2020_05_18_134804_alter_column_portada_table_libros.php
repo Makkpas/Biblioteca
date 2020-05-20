@@ -11,22 +11,22 @@ class AlterColumnPortadaTableLibros extends Migration
      *
      * @return void
      */
-    public function up()
-    {
-        Schema::table('libros', function (Blueprint $table) {
-            $table->renameColumn('postada', 'portada');
-        });
-    }
+    // public function up()
+    // {
+    //     Schema::table('libros', function (Blueprint $table) {
+    //         $table->renameColumn('postada', 'portada');
+    //     });
+    // }
 
     /**
      * Reverse the migrations.
      *
      * @return void
      */
-    public function down()
-    {
-        Schema::table('libros', function (Blueprint $table) {
-            $table->renameColumn('portada', 'postada');
-        });
-    }
+    // public function down()
+    // {
+    //     Schema::table('libros', function (Blueprint $table) {
+    //         $table->renameColumn('portada', 'postada');
+    //     });
+    // }
 }

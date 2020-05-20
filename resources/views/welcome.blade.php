@@ -6,8 +6,8 @@
         Laravel -V = MVC
     </div>
     <div class="links">
-        <a href="https://laravel.com/docs">Docs</a>
-        <a href="https://laracasts.com">Laracasts</a>
+        <a href="{{route('libros.index')}} ">@lang('Libros')</a>
+        <a href="{{route('autores.index')}} ">@lang('Autores')</a>
         <a href="https://laravel-news.com">News</a>
         <a href="https://blog.laravel.com">Blog</a>
         <a href="https://nova.laravel.com">Nova</a>
