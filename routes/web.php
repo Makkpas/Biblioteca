@@ -68,10 +68,15 @@ Route::delete('/libros/{libro}', 'LibrosController@delete')->name('libros.delete
 // Rutas autores
 Route::get('/autores', 'AutoresController@index')->name('autores.index');
 Route::get('/autores/create', 'AutoresController@create')->name('autores.create');
+Route::post('/autores/store', 'AutoresController@store')->name('autores.store');
+
 Route::get('/autores/{autor}', 'AutoresController@show')->name('autores.show');
 
+Route::get('/autores/{autor}/edit', 'AutoresController@edit')->name('autores.edit');
+Route::put('/autores/update/{autor}', 'AutoresController@update')->name('autores.update');
 
-Route::post('/autores/store', 'AutoresController@store')->name('autores.store');
+
+
 /*
 GET      -> Mostrar información
 POST     -> Almacenar información

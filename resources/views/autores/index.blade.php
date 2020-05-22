@@ -14,6 +14,7 @@
                         <div class="card-body">
                         <h5 class="card-title">{{$autor->nombre}}</h5>
                         <a href="{{route('autores.show', $autor)}} " class="btn btn-primary">@lang('Ver más')</a>
+                        <a href="{{route('autores.edit', $autor)}} " class="btn btn-primary">@lang('Editar')</a>
                         </div>
                     </div>
                 </div> 

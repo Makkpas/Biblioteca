@@ -50,7 +50,17 @@ class AutoresController extends Controller
 
     public function show(Autor $autor){
         return view('autores.show',[
-            'autor' => $autor
+            'autor'=>$autor
         ]);
+    }
+
+    public function edit(Autor $autor){
+        return view('autores.edit',[
+            'autor'=>$autor
+        ]);
+    }
+
+    public function update(CrearAutorRequest $request){
+
     }
 }
