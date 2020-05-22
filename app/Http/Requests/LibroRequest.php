@@ -27,7 +27,7 @@ class CrearLibroRequest extends FormRequest
             'titulo' => 'required',
             'isbn' => 'required',
             'resumen' => 'required',
-            'portada' => 'required|image|mimes:jpeg,png,webp,jfif'
+            'portada' => 'image|mimes:jpeg,png,webp,jfif'
         ];
     }
 }

@@ -28,7 +28,7 @@ class CrearAutorRequest extends FormRequest
             'apellido'=>'required',
             'biografia'=>'required',
             'pais'=>'required',
-            'avatar'=>'required|image|mimes:jpg,jpeg,png,wepb,jfif'
+            'avatar'=>'image|mimes:jpg,jpeg,png,wepb,jfif'
         ];
     }
 }
