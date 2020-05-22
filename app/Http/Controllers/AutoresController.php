@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Autor;
-use App\Http\Requests\CrearAutorRequest;
+use App\Http\Requests\AutorRequest;
 
 class AutoresController extends Controller
 {

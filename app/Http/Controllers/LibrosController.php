@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Libro;
-use App\Http\Requests\CrearLibroRequest;
+use App\Http\Requests\LibroRequest;
 
 class LibrosController extends Controller
 {
@@ -118,6 +118,6 @@ class LibrosController extends Controller
     @param Libro $libro
     @return response
     */
-    public function delete(Libro $libro){}
+    public function destroy(Libro $libro){}
 
 }
