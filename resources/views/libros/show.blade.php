@@ -12,6 +12,10 @@
         
         <p>{{$libro->resumen}}</p>
 
+        <div class="btn-group" role="group" >
+            <a href="{{ route('libros.edit', $libro) }}" type="button" class="btn btn-success">@lang('Editar')</a>
+            <button type="button" class="btn btn-danger">@lang('Eliminar')</button>
+        </div>
     </div>
         
 @endsection

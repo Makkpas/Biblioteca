@@ -3,7 +3,7 @@
 @section('content')
 
     <div class="container">
-        <h2>@lang('Editar libro')</h2>
+        <h2>@lang('Editar genero')</h2>
 
         {{-- Cuando enviamos información se hace mediante POST --}}
 
@@ -20,16 +20,12 @@
             </div>
         @endif
 
-        <x-libro-form 
-            method="PUT" 
-            action="{{ route('libros.update', $libro) }}"
-            btnText="{{__('Editar libro')}}"
-            :libro="$libro"
-
-        ></x-libro-form> 
-
-
-
+        <x-genero-form
+            method="PUT"
+            action="{{route('generos.update', $genero)}}"
+            btnText="{{__('Editar genero')}}"
+            :genero="$genero"
+        ></x-genero-form>
     </div>
         
 @endsection

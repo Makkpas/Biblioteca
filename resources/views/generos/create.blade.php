@@ -4,7 +4,7 @@
 
     <div class="container">
 
-        <h2>@lang('Insertar autor')</h2>
+        <h2>@lang('Insertar genero')</h2>
 
         @if ($errors->any())
             <div class="alert alert-danger">
@@ -16,12 +16,12 @@
             </div>
         @endif
 
-        <x-autor-form
+        <x-genero-form
             method="POST"
-            action="{{ route('autores.store') }}"
-            btnText="{{__('Insertar autor')}}"
-            :autor="null"
-        ></x-autor-form>
+            action="{{route('generos.store')}}"
+            btnText="{{__('Insertar genero')}}"
+            :genero="null"
+        ></x-genero-form>
 
     </div>
     

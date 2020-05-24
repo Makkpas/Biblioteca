@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Genero;
-use Illuminate\Http\Request;
+use App\Http\Requests\GeneroRequest;
 
 class GeneroController extends Controller
 {
@@ -14,7 +14,11 @@ class GeneroController extends Controller
      */
     public function index()
     {
-        //
+        $generos = Genero::all();
+
+        return view('generos.index', [
+            'generos' => $generos,
+        ]);
     }
 
     /**
@@ -24,7 +28,7 @@ class GeneroController extends Controller
      */
     public function create()
     {
-        //
+        return view('generos.create');
     }
 
     /**
@@ -33,9 +37,17 @@ class GeneroController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(GeneroRequest $request)
     {
-        //
+        $data = $request->validated();
+
+        $genero = Genero::create($data);
+
+        if($genero){
+            return redirect(route('generos.index'));
+        }
+        dd($data);
+
     }
 
     /**
@@ -46,7 +58,9 @@ class GeneroController extends Controller
      */
     public function show(Genero $genero)
     {
-        //
+        return view('generos.show',[
+            'genero'=>$genero
+        ]);
     }
 
     /**
@@ -57,7 +71,9 @@ class GeneroController extends Controller
      */
     public function edit(Genero $genero)
     {
-        //
+        return view('generos.edit',[
+            'genero'=>$genero
+        ]);
     }
 
     /**
@@ -67,9 +83,15 @@ class GeneroController extends Controller
      * @param  \App\Genero  $genero
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Genero $genero)
+    public function update(GeneroRequest $request, Genero $genero)
     {
-        //
+        $data = $request->validated();
+
+
+        if($genero->update($data)){
+            return redirect(route('generos.index'));
+        }
+        dd($data);
     }
 
     /**

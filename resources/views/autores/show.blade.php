@@ -10,6 +10,11 @@
         <h2 class="card-title">{{$autor->nombre}}</h2>
 
         <p>{{$autor->biografia}}</p>
+
+        <div class="btn-group" role="group" >
+            <a href="{{ route('autores.edit', $autor) }}" type="button" class="btn btn-success">@lang('Editar')</a>
+            <button type="button" class="btn btn-danger">@lang('Eliminar')</button>
+        </div>
     </div>
     
 @endsection

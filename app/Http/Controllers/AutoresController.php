@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use Illuminate\Support\Str;
 use App\Autor;
 use App\Http\Requests\AutorRequest;
 
@@ -20,7 +21,7 @@ class AutoresController extends Controller
         return view('autores.create');
     }
 
-    public function store(CrearAutorRequest $request){
+    public function store(AutorRequest $request){
         
         $data = $request->validated();
         
@@ -29,7 +30,7 @@ class AutoresController extends Controller
         if($request->hasFile('avatar')){
             $file = $data['avatar'];
 
-            $avatar = time() . $file->getClientOriginalName();
+            $avatar = time() . Str::kebab( $file->getClientOriginalName());
 
             $file->storeAs('public/avatars', $avatar);
 
@@ -60,7 +61,27 @@ class AutoresController extends Controller
         ]);
     }
 
-    public function update(CrearAutorRequest $request){
+    public function update(AutorRequest $request, Autor $autor){
+        $data = $request->validated();
+        
+        $avatar = $autor->avatar;
 
+        if($request->hasFile('avatar')){
+            $file = $data['avatar'];
+
+            $avatar = time() . Str::kebab( $file->getClientOriginalName());
+
+            $file->storeAs('public/avatars', $avatar);
+
+            $avatar = 'storage/avatars/' . $avatar;
+        }
+
+        $data['avatar'] = $avatar;
+
+        if($autor->update($data)){
+            return redirect(route('autores.index'));
+        }
+
+        dd($data);
     }
 }

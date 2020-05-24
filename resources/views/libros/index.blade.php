@@ -18,7 +18,7 @@
                         <div class="card-body">
                         <h5 class="card-title">{{$libro->titulo}}</h5>
                         <a href="{{route('libros.show', $libro)}} " class="btn btn-primary">@lang('Ver más')</a>
-                        <a href="{{route('libros.edit', $libro)}} " class="btn btn-primary">@lang('Editar')</a>
+                        {{-- <a href="{{route('libros.edit', $libro)}} " class="btn btn-primary">@lang('Editar')</a> --}}
                         </div>
                     </div>
                 </div>

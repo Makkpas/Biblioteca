@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use Illuminate\Support\Str;
 use App\Libro;
 use App\Http\Requests\LibroRequest;
 
@@ -33,7 +34,7 @@ class LibrosController extends Controller
      // Ser encarga de insertar el libro en la base de datos
     //  @var \App\Http\Request\CrearLibroRequest $request
     // @return response
-    public function store(CrearLibroRequest $request){
+    public function store(LibroRequest $request){
 
         $data = $request->validated();
 
@@ -42,7 +43,7 @@ class LibrosController extends Controller
         if($request->hasFile('portada')){
             $file = $data['portada'];
 
-            $portada = time() . $file->getClientOriginalName();
+            $portada = time() . Str::kebab( $file->getClientOriginalName());
 
             $file->storeAs('public/portadas', $portada);
 
@@ -77,20 +78,22 @@ class LibrosController extends Controller
     // @return response
     public function edit(Libro $libro){
         return view('libros.edit', [
-            'libros'=>$libro
+            'libro'=>$libro
         ]);
     }
 
 
 
-    public function update(CrearLibroRequest $request){
+    public function update(LibroRequest $request, Libro $libro){
 
         $data = $request->validated();
+
+        $portada = $libro->portada;
 
         if($request->hasFile('portada')){
             $file = $data['portada'];
 
-            $portada = time() . $file->getClientOriginalName();
+            $portada = time() . Str::kebab( $file->getClientOriginalName());
 
             $file->storeAs('public/portadas', $portada);
 
@@ -99,15 +102,11 @@ class LibrosController extends Controller
 
         $data['portada'] = $portada;
 
-        $findLibro = Libro::find($data['isbn']);
 
-        $updateLibro = Libro::where('id', $findLibro['id'])
-                        ->update($data);
-
-        if($updateLibro){
+        if($libro->update($data)){
             return redirect(route('libros.index'));
         }
-        dd($updateLibro);
+        dd($data);
      
     }
 

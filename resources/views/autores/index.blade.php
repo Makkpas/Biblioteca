@@ -12,9 +12,8 @@
                     <div class="card">
                         <img src="{{ url($autor->avatar) }}" class="card-img-top" alt="{{$autor->nombre}}">
                         <div class="card-body">
-                        <h5 class="card-title">{{$autor->nombre}}</h5>
+                        <h5 class="card-title">{{$autor->nombre}}  {{$autor->apellido}}</h5>
                         <a href="{{route('autores.show', $autor)}} " class="btn btn-primary">@lang('Ver más')</a>
-                        <a href="{{route('autores.edit', $autor)}} " class="btn btn-primary">@lang('Editar')</a>
                         </div>
                     </div>
                 </div> 
