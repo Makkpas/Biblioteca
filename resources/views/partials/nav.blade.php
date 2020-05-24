@@ -10,7 +10,15 @@
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <!-- Left Side Of Navbar -->
                 <ul class="navbar-nav mr-auto">
-
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ route('libros.index') }}">{{ __('Libros') }}</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ route('autores.index') }}">{{ __('Autores') }}</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ route('generos.index') }}">{{ __('Generos') }}</a>
+                    </li>
                 </ul>
 
                 <!-- Right Side Of Navbar -->
