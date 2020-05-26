@@ -14,7 +14,7 @@
 
         <div class="btn-group" role="group" >
             <a href="{{ route('libros.edit', $libro) }}" type="button" class="btn btn-success">@lang('Editar')</a>
-            <button type="button" class="btn btn-danger">@lang('Eliminar')</button>
+            <button  type="button" class="btn btn-danger btn-eliminar-libro" data-id="{{ $libro->id }} " >@lang('Eliminar')</button>
         </div>
     </div>
         

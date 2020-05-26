@@ -59,7 +59,7 @@ Route::put('/libros/update/{libro}', 'LibrosController@update')->name('libros.up
 
 
 Route::get('/libros/{libro}', 'LibrosController@show')->name('libros.show');
-Route::delete('/libros/{libro}', 'LibrosController@delete')->name('libros.delete');
+Route::delete('/libros/{libro}', 'LibrosController@destroy')->name('libros.destroy');
 
 
 
@@ -73,6 +73,7 @@ Route::get('/autores/{autor}', 'AutoresController@show')->name('autores.show');
 
 Route::get('/autores/{autor}/edit', 'AutoresController@edit')->name('autores.edit');
 Route::put('/autores/update/{autor}', 'AutoresController@update')->name('autores.update');
+Route::delete('/autores/{autor}', 'AutoresController@destroy')->name('autores.destroy');
 
 
 // Rutas genero
@@ -84,6 +85,7 @@ Route::get('/generos/{genero}', 'GeneroController@show')->name('generos.show');
 
 Route::get('/generos/{genero}/edit', 'GeneroController@edit')->name('generos.edit');
 Route::put('/generos/update/{genero}', 'GeneroController@update')->name('generos.update');
+Route::delete('/generos/{genero}', 'GeneroController@destroy')->name('autores.destroy');
 
 /*
 GET      -> Mostrar información

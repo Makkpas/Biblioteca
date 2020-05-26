@@ -37319,6 +37319,105 @@ module.exports = function(module) {
 
 /***/ }),
 
+/***/ "./resources/js/adminAutores.js":
+/*!**************************************!*\
+  !*** ./resources/js/adminAutores.js ***!
+  \**************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+function deleteAutor(e) {
+  var id = e.target.dataset.id;
+
+  if (!id) {
+    return;
+  }
+
+  window.axios["delete"]("/autores/".concat(id)).then(function (res) {
+    if (res) {
+      window.location.href = '/autores';
+    } else {
+      alert('No se pudo eliminar ');
+    }
+  })["catch"](function (err) {
+    console.log(err);
+    alert(err);
+  });
+}
+
+var btnsEliminar = document.querySelectorAll('.btn-eliminar-autor');
+btnsEliminar.forEach(function (btn) {
+  btn.addEventListener('click', deleteAutor);
+});
+
+/***/ }),
+
+/***/ "./resources/js/adminGeneros.js":
+/*!**************************************!*\
+  !*** ./resources/js/adminGeneros.js ***!
+  \**************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+function deleteGenero(e) {
+  var id = e.target.dataset.id;
+
+  if (!id) {
+    return;
+  }
+
+  window.axios["delete"]("/generos/".concat(id)).then(function (res) {
+    if (res) {
+      window.location.href = '/generos';
+    } else {
+      alert('No se pudo eliminar ');
+    }
+  })["catch"](function (err) {
+    console.log(err);
+    alert(err);
+  });
+}
+
+var btnsEliminar = document.querySelectorAll('.btn-eliminar-genero');
+btnsEliminar.forEach(function (btn) {
+  btn.addEventListener('click', deleteGenero);
+});
+
+/***/ }),
+
+/***/ "./resources/js/adminLibros.js":
+/*!*************************************!*\
+  !*** ./resources/js/adminLibros.js ***!
+  \*************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+function deleteLibro(e) {
+  var id = e.target.dataset.id;
+
+  if (!id) {
+    return;
+  }
+
+  window.axios["delete"]("/libros/".concat(id)).then(function (res) {
+    if (res) {
+      window.location.href = '/libros';
+    } else {
+      alert('No se pudo eliminar ');
+    }
+  })["catch"](function (err) {
+    console.log(err);
+    alert(err);
+  });
+}
+
+var btnsEliminar = document.querySelectorAll('.btn-eliminar-libro');
+btnsEliminar.forEach(function (btn) {
+  btn.addEventListener('click', deleteLibro);
+});
+
+/***/ }),
+
 /***/ "./resources/js/app.js":
 /*!*****************************!*\
   !*** ./resources/js/app.js ***!
@@ -37359,6 +37458,7 @@ try {
 
 window.axios = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
 window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
+window.axios.defaults.baseURL = "http://interactivas2.test/";
 /**
  * Echo exposes an expressive API for subscribing to channels and listening
  * for events that are broadcast by Laravel. Echo and event broadcasting
@@ -37387,13 +37487,16 @@ window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
 /***/ }),
 
 /***/ 0:
-/*!*************************************************************!*\
-  !*** multi ./resources/js/app.js ./resources/sass/app.scss ***!
-  \*************************************************************/
+/*!*********************************************************************************************************************************************************!*\
+  !*** multi ./resources/js/app.js ./resources/js/adminLibros.js ./resources/js/adminAutores.js ./resources/js/adminGeneros.js ./resources/sass/app.scss ***!
+  \*********************************************************************************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
 __webpack_require__(/*! C:\laragon\www\interactivas2\resources\js\app.js */"./resources/js/app.js");
+__webpack_require__(/*! C:\laragon\www\interactivas2\resources\js\adminLibros.js */"./resources/js/adminLibros.js");
+__webpack_require__(/*! C:\laragon\www\interactivas2\resources\js\adminAutores.js */"./resources/js/adminAutores.js");
+__webpack_require__(/*! C:\laragon\www\interactivas2\resources\js\adminGeneros.js */"./resources/js/adminGeneros.js");
 module.exports = __webpack_require__(/*! C:\laragon\www\interactivas2\resources\sass\app.scss */"./resources/sass/app.scss");
 
 

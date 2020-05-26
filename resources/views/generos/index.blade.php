@@ -4,7 +4,7 @@
 
     <div class="container">
         <h2>@lang('Acá van a ir los generos')</h2>
-        <a href="{{route('generos.create')}}">@lang('Insertar autor')</a>
+        <a href="{{route('generos.create')}}">@lang('Insertar genero')</a>
 
         <div class="row">
             @foreach ($generos as $genero)

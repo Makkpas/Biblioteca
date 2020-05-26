@@ -100,8 +100,11 @@ class GeneroController extends Controller
      * @param  \App\Genero  $genero
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Genero $genero)
-    {
-        //
+    public function destroy(Genero $genero){
+
+        if($genero->delete()){
+            return response()->json(['error' => 'false'], 202);
+        }
+        return response()->json(['error' => 'true'], 202);
     }
 }

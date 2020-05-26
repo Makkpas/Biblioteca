@@ -11,5 +11,12 @@ const mix = require('laravel-mix');
  |
  */
 
-mix.js('resources/js/app.js', 'public/js')
+mix.js(
+    [
+        'resources/js/app.js',
+        'resources/js/adminLibros.js', 
+        'resources/js/adminAutores.js',
+        'resources/js/adminGeneros.js'
+
+    ], 'public/js')
     .sass('resources/sass/app.scss', 'public/css');

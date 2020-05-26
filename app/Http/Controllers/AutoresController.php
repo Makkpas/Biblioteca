@@ -84,4 +84,12 @@ class AutoresController extends Controller
 
         dd($data);
     }
+
+    public function destroy(Autor $autor){
+
+        if($autor->delete()){
+            return response()->json(['error' => 'false'], 202);
+        }
+        return response()->json(['error' => 'true'], 202);
+    }
 }

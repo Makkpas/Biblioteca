@@ -2,14 +2,26 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Support\Str;
 use App\Libro;
 use App\Http\Requests\LibroRequest;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Str;
 
 class LibrosController extends Controller
 {
     // Muestra todos los libros
     // @return response
+
+    public function __construct(){
+       $this->middleware('auth', 
+       [
+           'except'=>[
+               'index',
+               'show',
+           ],
+        ]);
+    }
+
 
     public function index(){
 
@@ -38,6 +50,8 @@ class LibrosController extends Controller
 
         $data = $request->validated();
 
+        $userId = Auth::user()->id;
+
         $portada['portada'] = 'notfound.jpg';
 
         if($request->hasFile('portada')){
@@ -51,6 +65,8 @@ class LibrosController extends Controller
         }
 
         $data['portada'] = $portada;
+
+        $data['user_id'] = $userId;
 
         $libro = Libro::create($data);
 
@@ -117,6 +133,12 @@ class LibrosController extends Controller
     @param Libro $libro
     @return response
     */
-    public function destroy(Libro $libro){}
+    public function destroy(Libro $libro){
+
+        if($libro->delete()){
+            return response()->json(['error' => 'false'], 202);
+        }
+        return response()->json(['error' => 'true'], 202);
+    }
 
 }

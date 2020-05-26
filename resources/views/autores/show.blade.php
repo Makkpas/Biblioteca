@@ -13,7 +13,7 @@
 
         <div class="btn-group" role="group" >
             <a href="{{ route('autores.edit', $autor) }}" type="button" class="btn btn-success">@lang('Editar')</a>
-            <button type="button" class="btn btn-danger">@lang('Eliminar')</button>
+            <button type="button" class="btn btn-danger btn-eliminar-autor" data-id="{{$autor->id}}">@lang('Eliminar')</button>
         </div>
     </div>
     
