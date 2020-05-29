@@ -21,6 +21,6 @@ class Autor extends Model
 
     public function libros()
     {
-        return $this->belongsToMany('App\Libro');
+        return $this->belongsToMany('App\Libro', 'autor_libro', 'autor_id', 'libro_id')->withTimesstamps();
     }
 }

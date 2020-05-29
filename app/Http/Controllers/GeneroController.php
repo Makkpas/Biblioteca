@@ -7,6 +7,17 @@ use App\Http\Requests\GeneroRequest;
 
 class GeneroController extends Controller
 {
+
+
+    public function __construct(){
+        $this->middleware('auth', 
+        [
+            'except'=>[
+                'index',
+                'show',
+            ],
+         ]);
+     }
     /**
      * Display a listing of the resource.
      *

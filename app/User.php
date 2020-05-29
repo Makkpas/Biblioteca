@@ -41,6 +41,11 @@ class User extends Authenticatable
     {
         return $this->hasMany('App\Libro');
     }
+
+    public function users()
+    {
+        return $this->belongsToMany('App\Role', 'role_user', 'user_id', 'role_id')->withTimestamps();
+    }
 }
 
 

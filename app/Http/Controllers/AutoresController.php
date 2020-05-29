@@ -8,6 +8,17 @@ use App\Http\Requests\AutorRequest;
 
 class AutoresController extends Controller
 {
+
+    public function __construct(){
+        $this->middleware('auth', 
+        [
+            'except'=>[
+                'index',
+                'show',
+            ],
+         ]);
+     }
+
     public function index(){
         
         $autores = Autor::all();
